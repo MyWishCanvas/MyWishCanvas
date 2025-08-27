@@ -21,14 +21,38 @@
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="relative bg-gray-900 text-white h-screen flex items-center justify-center">
-    <div class="text-center px-4">
-      <h2 class="text-4xl md:text-6xl font-bold mb-4">Anime & Fanart Commissions</h2>
-      <p class="mb-6 text-lg">Bring your characters and ideas to life with MyWishCanvas</p>
-      <a href="#portfolio" class="bg-indigo-600 hover:bg-indigo-500 text-white px-6 py-3 rounded-lg font-semibold">See My Work</a>
+<!-- Hero Section with Slider -->
+<section class="bg-gray-900 text-white py-16">
+  <div class="container mx-auto px-4 text-center">
+    <h1 class="text-5xl font-bold mb-6">Welcome to MyWishCanvas</h1>
+    <p class="text-lg mb-10">Anime & Fanart Commissions — bring your characters to life!</p>
+
+    <!-- Slider -->
+    <div class="relative w-full max-w-4xl mx-auto overflow-hidden rounded-lg shadow-lg">
+      <div id="slider" class="flex transition-transform duration-500">
+        <img src="assets/cover-1.jpg" alt="Cover 1" class="w-full flex-shrink-0" />
+        <img src="assets/cover-2.jpg" alt="Cover 2" class="w-full flex-shrink-0" />
+        <img src="assets/cover-3.jpg" alt="Cover 3" class="w-full flex-shrink-0" />
+        <img src="assets/cover-4.jpg" alt="Cover 4" class="w-full flex-shrink-0" />
+      </div>
     </div>
-  </section>
+  </div>
+</section>
+
+<script>
+  const slider = document.getElementById('slider');
+  const slides = slider.children;
+  let currentIndex = 0;
+  const totalSlides = slides.length;
+
+  function showNextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+
+  // Автопрокрутка кожні 3 секунди
+  setInterval(showNextSlide, 3000);
+</script>
 
   <!-- Portfolio -->
   <section id="portfolio" class="py-16 container mx-auto px-4">
